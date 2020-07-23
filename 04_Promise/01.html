@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    let p = new Promise((resolve, reject)=>{
+      // console.log(111)
+      // setTimeout(()=>{
+      // },2000)
+      resolve("成功了")
+      // reject("失败了")
+    })
+
+    let result = p.then(
+      (value)=>{
+        console.log(value)
+        // return undefined
+        // throw "出错了"
+        return new Promise((resolve, reject)=>{
+          // resolve("成功2")
+          reject("失败了2")
+        })
+      },
+      (reason)=>{
+        console.log(reason)
+        // return undefined
+        // throw "出错了"
+        return new Promise((resolve, reject)=>{
+          // resolve("成功2")
+          reject("失败了2")
+        })
+      },
+    )
+    
+    console.log(result)
+
+    // console.log(222)
+  </script>
+</body>
+</html>
