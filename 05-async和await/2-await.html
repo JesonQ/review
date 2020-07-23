@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>await</title>
+</head>
+
+<body>
+
+    <script>
+        /* 
+            await右边的三种情况
+            1. 为非promise情况
+            2. 为成功的promise的情况
+            3. 为失败的promise的情况,需要try...catch捕获
+         */
+        async function main() {
+            let p = new Promise((resolve, reject) => {
+                reject("失败了")
+            })
+            try {
+                await p;
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        main()
+    </script>
+</body>
+
+</html>
